@@ -2,8 +2,11 @@
 <ul>
   <%@links.each do |link|%>
   <li>
-    <%=link_to link.title, link_path(link.id)%>
+    <p><%=link_to link.title, link_path(link.id)%></p> has <%=link.comments.length%> comments
     <hr>
   </li>
   <%end%>
 </ul>
+
+
+<%= button_to "Add new link", new_link_path, :class => 'btn btn-success'%>
