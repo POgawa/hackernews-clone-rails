@@ -15,13 +15,13 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    render :new
   end
 
   def create
-    @comment = Comment.new(list_params)
+    @user = User.find(params[:user_id])
+    @comment = @user.comments.new(comment_params)
     if @comment.save
-      redirect_to  lists_path #listed in rake route as lists under prefix
+      redirect_to  comments_path #commented in rake route as comments under prefix
     else
       render :new
     end
@@ -29,13 +29,12 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
-    render :edit
   end
 
   def update
     @comment = Comment.find(params[:id])
-    if @comment.update(list_params)
-      redirect_to lists_path
+    if @comment.update(comment_params)
+      redirect_to comments_path
     else
       render :edit
     end
@@ -48,7 +47,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  def list_params
+  def comment_params
     params.require(:comment).permit(:title, :description)
   end
 
