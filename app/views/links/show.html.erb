@@ -1,0 +1,18 @@
+<h1><%=link_to @link.title, "http://#{@link.link}", :target => "_blank"%></h1>
+
+
+<% if @link_comments %>
+  <ul>
+  <%@link_comments.each do |comments|%>
+  <li>
+    <%=comments.title%>
+    <%=comments.description%>
+  </li>
+
+  </ul>
+  <%end%>
+<%else%>
+  <h1 class='black'>There are currently no comments for this link</h1>
+
+  <h3><%=button_to "Please add a comment", new_link_comment_path(@link.id), :class => 'btn btn-success'%></h3>
+<%end%>

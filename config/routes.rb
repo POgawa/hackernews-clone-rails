@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  root to: "comments#index"
+  root to: "links#index"
   devise_for :users
-  resources :users do
-    resources :comments, except: :show
+  resources :users
+  resources :links do
+    resources :comments
+    resources :votes
   end
-
-  resources :comments
-
 end

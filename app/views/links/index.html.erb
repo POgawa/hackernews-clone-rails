@@ -1,0 +1,9 @@
+<h1>Current links:</h1>
+<ul>
+  <%@links.each do |link|%>
+  <li>
+    <%=link_to link.title, link_path(link.id)%>
+    <hr>
+  </li>
+  <%end%>
+</ul>
