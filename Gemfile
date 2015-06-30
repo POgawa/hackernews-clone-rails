@@ -8,6 +8,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
+gem 'bootstrap-sass'
+
 
 group :development do
   gem 'byebug'
@@ -27,6 +29,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  
+
 
 end

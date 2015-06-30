@@ -2,8 +2,9 @@
 <ul>
   <%@comments.each do |comment|%>
   <li>
-    <%=comment.title%><br>
-    <%=comment.description%>
+    Title: <%=comment.title%><br>
+    Description: <%=comment.description%>
+    <hr>
   </li>
   <%end%>
 </ul>

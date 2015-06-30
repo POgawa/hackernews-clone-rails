@@ -1,0 +1,20 @@
+<h1>Profile for: <%=@user.email%></h1>
+
+
+
+    <%if @user.comments%>
+      <ul>
+
+      <% @user_comments.each do |user_comment|%>
+        <li>
+          Title: <%= user_comment.title%> <br>
+          Description: <%= user_comment.description%>
+          <hr>
+        </li>
+      <%end%>
+      </ul>
+    <%else%>
+      <p>
+        There are no comments for this user
+      </p>
+    <%end%>
