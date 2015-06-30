@@ -1,0 +1,9 @@
+<h1>Hacker News</h1>
+<ul>
+  <%@comments.each do |comment|%>
+  <li>
+    <%=comment.title%><br>
+    <%=comment.description%>
+  </li>
+  <%end%>
+</ul>
