@@ -5,7 +5,6 @@ class LinksController<ApplicationController
 
   def show
     @link = Link.find(params[:id])
-    @links_comments = @link.comments
   end
 
   def new
@@ -25,6 +24,26 @@ class LinksController<ApplicationController
       render :new
     end
   end
+
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    if @link.update(link_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @link = Link.find(params[:id])
+    @link.destroy
+    redirect_to root_path
+  end
+
 
   private
 

@@ -1,12 +1,14 @@
 <h1><%=link_to @link.title, "http://#{@link.link}", :target => "_blank"%></h1>
 
 
-<% if @link_comments %>
+<% if @link.comments.any? %>
   <ul>
-  <%@link_comments.each do |comments|%>
+  <%@link.comments.each do |comments|%>
   <li>
-    <%=comments.title%>
-    <%=comments.description%>
+    Comment title: <%=comments.title%>
+    <p>
+    Description:  <%=comments.description%>
+    </p>
   </li>
 
   </ul>
@@ -14,5 +16,9 @@
 <%else%>
   <h1 class='black'>There are currently no comments for this link</h1>
 
-  <h3><%=button_to "Please add a comment", new_link_comment_path(@link.id), :class => 'btn btn-success'%></h3>
+  <%if current_user%>
+    <h3><%=link_to "Please add a comment", new_link_comment_path(@link.id), :class => 'btn btn-success'%></h3>
+    <%= link_to "Edit Link", edit_link_path(@link.id), :class => 'btn btn-success'%>
+
+  <%end%>
 <%end%>

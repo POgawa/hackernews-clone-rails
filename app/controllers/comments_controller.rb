@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     @user = User.find(params[:user_id])
     @comment = @user.comments.new(comment_params)
     if @comment.save
-      redirect_to  comments_path #commented in rake route as comments under prefix
+      redirect_to  root_path #commented in rake route as comments under prefix
     else
       render :new
     end
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to comments_path
+      redirect_to root_path
     else
       render :edit
     end

@@ -8,5 +8,6 @@
   <%end%>
 </ul>
 
-
-<%= link_to "Add new link", new_link_path, :class => 'btn btn-success'%>
+<%if current_user%>
+  <%= link_to "Add new link", new_user_link_path(current_user.id), :class => 'btn btn-success'%>
+<%end%>

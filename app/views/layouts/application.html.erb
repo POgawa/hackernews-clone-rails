@@ -46,7 +46,7 @@
           <% if current_user %>
             <li><%=link_to current_user.email, user_path(current_user.id) %></li>
           <%else%>
-            <li><%link_to 'Sign-in', new_user_session%></li>
+            <li><%=link_to 'Sign-in', new_user_session_path%></li>
           <%end%>
         </ul>
       </div>
@@ -57,7 +57,7 @@
     <%= yield %>
   </div>
 
-  <footer class ="text-center">This is a test</footer>
+  <footer class ="sticky-footer text-center">This is a test</footer>
 
 </body>
 </html>
