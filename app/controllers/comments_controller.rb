@@ -4,11 +4,13 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
+    @users = User.all
     @user = self.current_user
   end
 
   def show
     @comments = Comment.find(params[:id])
+
   end
 
   def new
